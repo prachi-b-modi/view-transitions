@@ -8,6 +8,24 @@ export interface Playlist {
   artists: string[];
 }
 
+export interface Podcast {
+  id: string;
+  title: string;
+  color: (typeof colors)[keyof typeof colors];
+  cover: string;
+  duration: string;
+  topic: string;
+  audioUrl?: string;
+  transcript?: string;
+  createdAt: string;
+  description: string;
+  // New fields for audio functionality
+  hasAudio?: boolean;
+  ttsProvider?: string;
+  message?: string;
+  skillName?: string;
+}
+
 export const playlists: Playlist[] = [
   {
     id: "1",
@@ -169,4 +187,51 @@ export const songs: Song[] = [
     album: "Night Visions",
     duration: "3:07",
   },
+];
+
+export const samplePodcasts: Podcast[] = [
+  {
+    id: "podcast_1",
+    title: "The Future of AI",
+    color: colors.blue,
+    cover: "https://via.placeholder.com/300x300/3b82f6/ffffff?text=AI+Future",
+    duration: "8:45",
+    topic: "Artificial Intelligence",
+    description: "Explore how AI will reshape our world in the next decade",
+    createdAt: new Date().toISOString(),
+    audioUrl: "https://example.com/ai-future.mp3"
+  },
+  {
+    id: "podcast_2", 
+    title: "Climate Change Solutions",
+    color: colors.green,
+    cover: "https://via.placeholder.com/300x300/10b981/ffffff?text=Climate+Solutions",
+    duration: "12:30",
+    topic: "Climate Change",
+    description: "Revolutionary approaches to tackling climate challenges",
+    createdAt: new Date().toISOString(),
+    audioUrl: "https://example.com/climate-solutions.mp3"
+  },
+  {
+    id: "podcast_3",
+    title: "Space Exploration 2024",
+    color: colors.purple,
+    cover: "https://via.placeholder.com/300x300/8b5cf6/ffffff?text=Space+2024",
+    duration: "15:20",
+    topic: "Space Technology",
+    description: "Latest breakthroughs in space exploration and missions",
+    createdAt: new Date().toISOString(),
+    audioUrl: "https://example.com/space-2024.mp3"
+  },
+  {
+    id: "podcast_4",
+    title: "Quantum Computing Basics",
+    color: colors.teal,
+    cover: "https://via.placeholder.com/300x300/06b6d4/ffffff?text=Quantum+Computing",
+    duration: "10:15",
+    topic: "Quantum Computing",
+    description: "Understanding quantum computing in simple terms",
+    createdAt: new Date().toISOString(),
+    audioUrl: "https://example.com/quantum-basics.mp3"
+  }
 ];
